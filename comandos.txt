@@ -149,9 +149,12 @@ actualizar angular.json
 }
 
 
-npm install @angular-architects/module-federation --save-dev
-npm install webpack@5 webpack-cli@4 --save-dev
+npm install @module-federation/webpack@2.5.1 --save-dev
+npm install @angular-architects/module-federation@19 --save-dev
+npm install webpack@5 --save-dev
+npm list @angular-architects/module-federation
 
+ng serve --port 4200 
 
 
 
