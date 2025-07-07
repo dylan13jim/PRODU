@@ -1,0 +1,72 @@
+<aside class="menu-lateral" [class.colapsado]="menuColapsado">
+  
+    <!-- Botón para colapsar/expandir -->
+    <div class="toggle-button" (click)="toggleMenu()">
+        <span class="icono-toggle" [class.rotado]="menuColapsado">
+            ◀
+        </span>
+    </div>
+  
+    <!-- Logo del menú (cuando está colapsado) -->
+    <div class="logo-mini" *ngIf="menuColapsado">
+        🏦
+    </div>
+  
+    <!-- Lista de navegación -->
+    <nav class="navegacion">
+        <ul class="menu-lista">
+            
+            <!-- Items del menú -->
+            <li 
+            *ngFor="let item of itemsVisibles" 
+            class="menu-item"
+            [class.activo]="item.activo"
+            [class.deshabilitado]="item.requiereAuth && !usuarioLogueado"
+            (click)="navegarA(item)"
+            [title]="menuColapsado ? item.titulo : ''">
+            
+            <div class="item-contenido">
+                <!-- Icono -->
+                <span class="icono">{{ item.icono }}</span>
+                
+                <!-- Texto (solo visible cuando no está colapsado) -->
+                <span class="texto" *ngIf="!menuColapsado">
+                {{ item.titulo }}
+                </span>
+                
+                <!-- Indicador de autenticación requerida -->
+                <span 
+                class="indicador-auth" 
+                *ngIf="item.requiereAuth && !usuarioLogueado && !menuColapsado"
+                title="Requiere iniciar sesión">
+                🔒
+                </span>
+            </div>
+            
+            <!-- Barra de indicador activo -->
+            <div class="indicador-activo" *ngIf="item.activo"></div>
+            </li>
+            
+        </ul>
+    </nav>
+  
+    <!-- Sección inferior -->
+    <div class="seccion-inferior" *ngIf="!menuColapsado">
+      
+        <!-- Mensaje para usuarios no logueados -->
+        <div class="mensaje-login" *ngIf="!usuarioLogueado">
+            <p>¡Inicia sesión para acceder a todas las funciones!</p>
+            <button class="btn-login-mini" routerLink="/auth/login">
+            Entrar
+            </button>
+        </div>
+    
+        <!-- Información para usuarios logueados -->
+        <div class="info-usuario" *ngIf="usuarioLogueado">
+            <div class="estado-online">
+            <span class="punto-verde"></span>
+            <span>En línea</span>
+            </div>
+        </div>      
+    </div>  
+</aside>

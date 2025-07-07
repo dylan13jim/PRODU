@@ -1,0 +1,42 @@
+<header class="encabezado">
+    <!-- Logo y título -->
+    <div class="logo-seccion">
+      <div class="logo">
+        🏦
+      </div>
+      <h1 class="titulo">Mi Banco App</h1>
+    </div>
+  
+    <!-- Información del usuario -->
+    <div class="usuario-seccion" *ngIf="usuario">
+      <div class="usuario-info" (click)="toggleMenuUsuario()">
+        <div class="avatar">
+          <img [src]="usuario.avatar" [alt]="usuario.nombre" />
+        </div>
+        <div class="datos-usuario">
+          <span class="nombre">{{ usuario.nombre }} {{ usuario.apellido }}</span>
+          <span class="email">{{ usuario.correo }}</span>
+        </div>
+        <div class="icono-menu">
+          <span [class.rotado]="mostrarMenuUsuario">▼</span>
+        </div>
+      </div>
+  
+      <!-- Menú desplegable del usuario -->
+      <div class="menu-usuario" *ngIf="mostrarMenuUsuario">
+        <button class="menu-item" (click)="irAPerfil()">
+          👤 Mi Perfil
+        </button>
+        <button class="menu-item" (click)="cerrarSesion()">
+          🚪 Cerrar Sesión
+        </button>
+      </div>
+    </div>
+  
+    <!-- Si no hay usuario logueado -->
+    <div class="login-seccion" *ngIf="!usuario">
+      <button class="btn-login" routerLink="/auth/login">
+        Iniciar Sesión
+      </button>
+    </div>
+  </header>

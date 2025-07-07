@@ -1,0 +1,56 @@
+<div class="tablero-simple">
+  
+    <!-- === TÍTULO === -->
+    <div class="header-tablero">
+      <h1>🏦 Mi Banco App</h1>
+      <p>Selecciona una opción para comenzar</p>
+    </div>
+  
+    <!-- === 3 BOTONES ÚNICOS === -->
+    <div class="botones-principales">
+      
+      <!-- Botón 1: Login -->
+      <button class="boton-tablero login" routerLink="/login">
+        <div class="icono-boton">🔐</div>
+        <span>Iniciar Sesión</span>
+      </button>
+  
+      <!-- Botón 2: Registro -->
+      <button class="boton-tablero registro" routerLink="/registro">
+        <div class="icono-boton">📝</div>
+        <span>Registrarse</span>
+      </button>
+  
+      <!-- Botón 3: Información del Banco -->
+      <button class="boton-tablero informacion" (click)="mostrarInfoBanco()">
+        <div class="icono-boton">ℹ️</div>
+        <span>Información del Banco</span>
+      </button>
+  
+    </div>
+  
+    <!-- === MODAL DE INFORMACIÓN === -->
+    <div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+      <div class="modal-info" (click)="$event.stopPropagation()">
+        <button class="btn-cerrar" (click)="cerrarModal()">✕</button>
+        <h2>🏦 Información del Banco</h2>
+        
+        <div class="info-contenido">
+          <h3>🎯 Nuestra Misión</h3>
+          <p>Brindar servicios financieros seguros y confiables.</p>
+          
+          <h3>🌟 Servicios</h3>
+          <ul>
+            <li>💳 Cuentas bancarias</li>
+            <li>💸 Transferencias</li>
+            <li>📊 Control de gastos</li>
+          </ul>
+          
+          <h3>📞 Contacto</h3>
+          <p><strong>Teléfono:</strong> +57 (1) 234-5678</p>
+          <p><strong>Email:</strong> soporte</p>
+        </div>
+      </div>
+    </div>
+  
+  </div>

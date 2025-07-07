@@ -1,0 +1,341 @@
+.menu-lateral {
+    width: 280px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estado colapsado */
+  .menu-lateral.colapsado {
+    width: 70px;
+  }
+  
+  .menu-lateral.colapsado .texto {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  
+  /* === BOTÓN TOGGLE === */
+  .toggle-button {
+    position: absolute;
+    top: 20px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+  }
+  
+  .icono-toggle {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .icono-toggle.rotado {
+    transform: rotate(180deg);
+  }
+  
+  /* === LOGO MINI === */
+  .logo-mini {
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* === NAVEGACIÓN === */
+  .navegacion {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  .menu-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-item {
+    position: relative;
+    margin: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+  
+  .menu-item.activo {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .menu-item.activo .item-contenido {
+    color: white;
+    font-weight: 600;
+  }
+  
+  .menu-item.deshabilitado {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .menu-item.deshabilitado:hover {
+    background: none;
+    transform: none;
+  }
+  
+  .item-contenido {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+  }
+  
+  .icono {
+    font-size: 1.3rem;
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  .texto {
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .indicador-auth {
+    margin-left: auto;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+  
+  /* Indicador activo (barra lateral) */
+  .indicador-activo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ecf0f1;
+    border-radius: 0 2px 2px 0;
+  }
+  
+  /* === SECCIÓN INFERIOR === */
+  .seccion-inferior {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+  }
+  
+  .mensaje-login {
+    text-align: center;
+  }
+  
+  .mensaje-login p {
+    font-size: 0.85rem;
+    margin: 0 0 1rem 0;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+  
+  .btn-login-mini {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-login-mini:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  }
+  
+  .info-usuario .estado-online {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  .punto-verde {
+    width: 8px;
+    height: 8px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: pulso 2s infinite;
+  }
+  
+  /* === RESPONSIVE === */
+/* === RESPONSIVE MEJORADO === */
+@media (max-width: 1200px) {
+  .menu-lateral {
+    width: 250px; /* Reducir ancho en pantallas medianas */
+  }
+}
+
+@media (max-width: 992px) {
+  .menu-lateral {
+    width: 220px; /* Más pequeño en tablets */
+  }
+  
+  .item-contenido .texto {
+    font-size: 0.9rem; /* Texto más pequeño */
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-lateral {
+    position: fixed; /* Fijo en móviles */
+    left: 0;
+    top: 80px; /* Debajo del encabezado */
+    width: 100%; /* Ancho completo */
+    height: calc(100vh - 80px);
+    transform: translateX(-100%); /* Oculto por defecto */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .menu-lateral.abierto {
+    transform: translateX(0); /* Mostrar cuando esté abierto */
+  }
+  
+  .menu-lateral.colapsado {
+    width: 100%; /* En móvil no colapsar, solo ocultar/mostrar */
+    transform: translateX(-100%);
+  }
+  
+  /* Botón para abrir menú en móvil */
+  .toggle-button {
+    display: block;
+    position: fixed;
+    top: 90px;
+    left: 15px;
+    z-index: 1001;
+    background: #3498db;
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-lateral {
+    top: 70px; /* Ajustar para encabezados más pequeños */
+    height: calc(100vh - 70px);
+  }
+  
+  .toggle-button {
+    top: 80px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .item-contenido {
+    padding: 0.8rem;
+  }
+  
+  .item-contenido .icono {
+    font-size: 1.1rem;
+  }
+  
+  .item-contenido .texto {
+    font-size: 0.85rem;
+  }
+}
+
+/* === OVERLAY PARA CERRAR MENÚ EN MÓVIL === */
+@media (max-width: 768px) {
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+  
+  .menu-overlay.visible {
+    display: block;
+  }
+}
+
+/* === AJUSTES PARA EL CONTENIDO PRINCIPAL === */
+@media (max-width: 768px) {
+  /* El contenido principal ocupa todo el ancho en móvil */
+  .contenido-principal {
+    margin-left: 0 !important;
+  }
+}
+
+/* === AJUSTES DINÁMICOS SEGÚN ANCHO DE PANTALLA === */
+@media (min-width: 1400px) {
+  .menu-lateral {
+    width: 300px; /* Más ancho en pantallas grandes */
+  }
+  
+  .item-contenido {
+    padding: 1.2rem;
+  }
+  
+  .item-contenido .texto {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .menu-lateral {
+    width: 320px; /* Aún más ancho en pantallas muy grandes */
+  }
+}
+  
+  /* === ANIMACIONES === */
+  @keyframes pulso {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.8);
+    }
+  }

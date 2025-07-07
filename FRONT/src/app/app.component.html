@@ -1,0 +1,19 @@
+<!-- Layout principal de la aplicación -->
+<div class="app-container">
+  
+  <!-- Encabezado siempre visible -->
+  <app-encabezado></app-encabezado>
+  
+  <!-- Layout con menú lateral + contenido -->
+  <div class="layout-principal">    
+    <!-- Menú lateral -->
+    <app-menu-lateral></app-menu-lateral>   
+
+    <div class="contenido-principal">
+      <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+  
+</div>
+

@@ -1,0 +1,27 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+}
+
+.layout-principal {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 80px); /* Ajustar por la altura del encabezado */
+}
+
+.contenido-principal {
+  flex: 1;
+  background: #f8f9fa;
+  /* Eliminar padding para que ocupe todo el espacio */
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .layout-principal {
+    flex-direction: column;
+  }
+}
