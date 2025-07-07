@@ -1,0 +1,93 @@
+<div class="login-container">
+  
+  <!-- === HEADER === -->
+  <div class="login-header">
+    <img src="https://www.produbanco.com.ec/media/712553/web.png?format=webp" alt="Logo">
+    <!--<h1>Iniciar Sesión</h1>-->
+  </div>
+
+  <!-- === FORMULARIO === -->
+  <form class="login-form" (ngSubmit)="onLogin()" #loginForm="ngForm">
+    
+    <!-- Campo Email -->
+    <div class="campo-grupo">
+      <label for="email">Email</label>
+      <div class="input-wrapper">
+        <input 
+          type="email" 
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="tu@gmail.com"
+          required
+          autocomplete="email"
+          [class.error]="error && !email"
+          (input)="limpiarError()"
+        />
+        <span class="icono-input">📧</span>
+      </div>
+    </div>
+
+    <!-- Campo Contraseña -->
+    <div class="campo-grupo">
+      <label for="password">Contraseña</label>
+      <div class="input-wrapper">
+        <input 
+          [type]="mostrarPassword ? 'text' : 'password'"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Tu contraseña"
+          required
+          autocomplete="current-password"
+          [class.error]="error && !password"
+          (input)="limpiarError()"
+        />
+        <button 
+          type="button" 
+          class="toggle-password"
+          (click)="togglePassword()"
+          [title]="mostrarPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+        >
+          {{ mostrarPassword ? '👁️' : '👁️‍🗨️' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Mensaje de Error -->
+    <div class="error-mensaje" *ngIf="error">
+      <span class="icono-error">⚠️</span>
+      <span>{{ error }}</span>
+    </div>
+
+    <!-- Botón de Login -->
+    <button 
+      type="submit" 
+      class="btn-login"
+      [disabled]="cargando || !email || !password"
+      [class.cargando]="cargando"
+    >
+      <span *ngIf="!cargando">Iniciar Sesión</span>
+      <span *ngIf="cargando" class="spinner">🔄 Iniciando...</span>
+    </button>  
+  </form>
+
+  <!-- === ACCIONES ADICIONALES === -->
+  <div class="login-acciones">
+    
+    <!-- Ir a Registro -->
+    <div class="registro-link">
+      <p>¿No tienes cuenta?</p>
+      <button type="button" class="btn-link" (click)="irARegistro()">
+        Registrarse aquí
+      </button>
+    </div>
+
+    <!-- Volver a App Principal -->
+    <div class="volver-link">
+      <a href="http://localhost:4200" class="btn-volver">
+        ← Volver a Inicio
+      </a>
+    </div>  
+  </div>  
+</div>
