@@ -1,0 +1,39 @@
+
+server
+npm init -y
+npm install json-server jsonwebtoken cors
+pm install --save-dev nodemon
+npm run dev
+
+FRONT 
+PAGINMA-PRICIPAL CUAL ES SU OBGETIVO
+ APP PRINCIPAL - FUNCIÓN RESUMIDA:
+🎯 ES EL "CONTENEDOR PRINCIPAL"
+3 funciones clave:
+
+🚪 Recibir al usuario - Primera página que se carga
+🔐 Verificar si está logueado - Si no → manda a login
+🧭 Cargar los microfrontends - Auth o Cuentas según donde vaya
+
+🖼️ LAYOUT FIJO:
+
+Header con logo y usuario (siempre visible)
+Menú lateral (siempre visible)
+Área central donde se cargan los microfrontends
+
+🔄 FLUJO:
+
+Usuario llega → Verifica login
+Si no está logueado → Carga mf-auth
+Si está logueado → Muestra dashboard
+Usuario hace clic "Cuentas" → Carga mf-cuentas
+Header y menú se mantienen, solo cambia el centro
+
+📋 ANALOGÍA:
+= Marco de una ventana
+
+El marco siempre está ahí
+El contenido del centro cambia
+
+¿Claro? La App Principal es el coordinador que mantiene el layout y decide qué microfrontend mostrar 🚀
+
